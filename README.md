@@ -2,18 +2,26 @@
 
 # 🛡️ AGENTS.md
 
-### Production Safety Rules for AI Coding Agents
+### The Production Safety Standard for AI Coding Agents
 
-**A production-first operating standard for autonomous coding agents, parallel sessions, and deployment harnesses.**
+**A production-first operating standard for autonomous agents, parallel sessions, and deployment harnesses.**
+
+[**English**](./README.md) · [Tiếng Việt](./README.vi.md) · [简体中文](./README.zh-CN.md)
 
 [![Production First](https://img.shields.io/badge/Production-First-0B6E4F?style=for-the-badge)](#the-production-first-principle)
 [![Anti-Rollback](https://img.shields.io/badge/Anti--Rollback-Enforced-C1121F?style=for-the-badge)](#the-safety-gate)
 [![Parallel Safe](https://img.shields.io/badge/Parallel_Agents-Isolated-1D4ED8?style=for-the-badge)](#built-for-parallel-work)
 [![Documentation](https://img.shields.io/badge/Format-Markdown-111827?style=for-the-badge&logo=markdown)](#choose-your-rulebook)
 
-*Move fast without moving production backwards.*
+### *Production is protected state—not just a server.*
+
+Move fast. Preserve what works. Prove what shipped.
 
 </div>
+
+---
+
+**[Why](#why-this-exists)** · **[Principle](#the-production-first-principle)** · **[Rulebooks](#choose-your-rulebook)** · **[Safety Gate](#the-safety-gate)** · **[Parallel Work](#built-for-parallel-work)** · **[Quick Start](#quick-start)**
 
 ---
 
@@ -32,6 +40,11 @@ This repository provides a practical safety floor for agents operating on real s
 
 > [!IMPORTANT]
 > A build that passes is not necessarily safe to deploy. A deployment that succeeds is not necessarily correct in production.
+
+| PROTECT | ISOLATE | PROVE |
+|:---:|:---:|:---:|
+| Preserve known-good production behavior | Give every session a clean worktree | Match branch, artifact, receipt, and live UX |
+| **No accidental rollback** | **No cross-session overwrite** | **No unverified “done”** |
 
 ## The production-first principle
 
@@ -81,6 +94,8 @@ CURRENT PRODUCTION RECEIPT
 
 The candidate must contain the latest fetched deploy-branch commit, introduce only the requested change and necessary support work, and be deployed from an immutable commit or artifact. If those conditions cannot be proven, deployment stops.
 
+> **The rule is simple:** uncertainty stops the mutation; evidence restarts it.
+
 ### Non-negotiable guarantees
 
 - **No stale deployment:** fetch and re-check immediately before push and deploy.
@@ -126,6 +141,19 @@ git clone https://github.com/minflamingo/AGENTS.md.git
 cd AGENTS.md
 ```
 
+<details>
+<summary><strong>Production adoption checklist</strong></summary>
+
+- [ ] Declare the deploy branch and source of truth.
+- [ ] Record the production SHA or immutable release receipt.
+- [ ] Require clean isolated worktrees for every session.
+- [ ] Enforce latest-head ancestry and fast-forward-only updates.
+- [ ] Serialize production mutations and reject stale artifacts.
+- [ ] Verify the authenticated live route after every deployment.
+- [ ] Report changed, tested, pushed, deployed, and verified separately.
+
+</details>
+
 For a repository-level `AGENTS.md`, reference or incorporate the relevant rules and add only stricter project details such as:
 
 - deploy branch and workflow;
@@ -159,5 +187,7 @@ Improvements are welcome when they make the rules clearer, more enforceable, or 
 ### Protect what is already working. Ship only what moves it forward.
 
 **Production first · Fast-forward only · Verify the real experience**
+
+[Read in English](./README.md) · [Đọc bằng tiếng Việt](./README.vi.md) · [阅读简体中文](./README.zh-CN.md)
 
 </div>
