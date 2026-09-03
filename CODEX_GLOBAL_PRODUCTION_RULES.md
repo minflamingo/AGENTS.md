@@ -1,12 +1,12 @@
 # Global Codex Production Safety Rules
 
-> Version 2.0 — a minimum safety floor for Codex CLI, the Codex app, Codex automations, subagents, and related Codex sessions that can modify a repository connected to a live environment.
+> Version 2.1 — a minimum safety floor for Codex CLI, the Codex app, Codex automations, subagents, and related Codex sessions that can modify a repository connected to a live environment.
 
 ## Autonomous, Surgical Execution
 
 - Inspect the relevant repository state and resolve discoverable facts yourself. Make reasonable in-scope assumptions and continue; ask only when missing information would materially change scope, user-visible behavior, data or authorization safety, or require an external or destructive action.
 - Implement the smallest complete change. Do not add speculative features, abstractions, configuration, refactors, formatting, or unrelated cleanup. Remove only code made unused by the current change.
-- Before designing a non-trivial or unfamiliar capability, inspect existing project patterns first, then independently consult official documentation and reputable, maintained GitHub implementations when a mature reference is likely to exist. Adapt proven patterns rather than copying blindly; verify version compatibility, license, security, and maintenance status. Skip external research for routine changes already covered by the project.
+- Before designing a non-trivial or unfamiliar capability, inspect existing project patterns first, then independently consult official documentation and reputable, maintained GitHub implementations when a mature reference is likely to exist. Adapt proven patterns rather than copying blindly; verify version compatibility, license, security, and maintenance status. Skip external research for routine changes already covered by the project. Treat GitHub as a reference only; do not install dependencies or copy an implementation wholesale solely because a reference uses them.
 
 ## 1. Scope and Precedence
 
@@ -32,7 +32,7 @@ Every production-connected repository SHOULD document the following values in `A
 
 ```yaml
 production_safety:
-  policy_version: "2.0"
+  policy_version: "2.1"
   deployment_mode: "approval-required" # disabled | approval-required | automatic
   canonical_remote: "origin"
   deploy_branch: "main"

@@ -21,7 +21,7 @@ Move fast. Preserve what works. Prove what shipped.
 
 ---
 
-**[Why](#why-this-exists)** · **[Principle](#the-production-first-principle)** · **[Rulebooks](#choose-your-rulebook)** · **[Safety Gate](#the-safety-gate)** · **[Parallel Work](#built-for-parallel-work)** · **[Quick Start](#quick-start)**
+**[Why](#why-this-exists)** · **[Principle](#the-production-first-principle)** · **[Execution](#autonomous-surgical-execution)** · **[Rulebooks](#choose-your-rulebook)** · **[Safety Gate](#the-safety-gate)** · **[Parallel Work](#built-for-parallel-work)** · **[Quick Start](#quick-start)**
 
 ---
 
@@ -65,6 +65,12 @@ flowchart LR
     H --> I[Verify live user experience]
     I --> J[Confirm SHA + branch + receipt]
 ```
+
+## Autonomous, surgical execution
+
+- Inspect repository state, resolve discoverable facts, make reasonable in-scope assumptions, and ask only when missing information would materially change scope, user-visible behavior, data or authorization safety, or require an external or destructive action.
+- Implement the smallest complete change without speculative features, abstractions, configuration, refactors, formatting, or unrelated cleanup. Remove only code made unused by that change.
+- For unfamiliar or non-trivial capabilities, inspect project patterns, official documentation, and reputable maintained GitHub implementations. Verify compatibility, license, security, and maintenance; treat GitHub as a reference, never automatic permission to add dependencies or copy an implementation wholesale. Skip external research for routine changes already covered by the project.
 
 ## Choose your rulebook
 

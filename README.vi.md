@@ -21,7 +21,7 @@ Làm nhanh. Giữ nguyên thứ đang hoạt động. Chứng minh thứ đã đ
 
 ---
 
-**[Lý do](#vì-sao-repository-này-tồn-tại)** · **[Nguyên tắc](#nguyên-tắc-production-first)** · **[Bộ quy tắc](#chọn-bộ-quy-tắc)** · **[Cổng an toàn](#cổng-an-toàn)** · **[Song song](#an-toàn-khi-làm-việc-song-song)** · **[Bắt đầu](#bắt-đầu-nhanh)**
+**[Lý do](#vì-sao-repository-này-tồn-tại)** · **[Nguyên tắc](#nguyên-tắc-production-first)** · **[Tự chủ](#thực-thi-tự-chủ-thay-đổi-tối-thiểu)** · **[Bộ quy tắc](#chọn-bộ-quy-tắc)** · **[Cổng an toàn](#cổng-an-toàn)** · **[Song song](#an-toàn-khi-làm-việc-song-song)** · **[Bắt đầu](#bắt-đầu-nhanh)**
 
 ---
 
@@ -65,6 +65,12 @@ flowchart LR
     H --> I[Kiểm tra trải nghiệm thật]
     I --> J[Đối chiếu SHA + nhánh + receipt]
 ```
+
+## Thực thi tự chủ, thay đổi tối thiểu
+
+- Kiểm tra trạng thái repository, tự xác định các dữ kiện có thể khám phá, đưa ra giả định hợp lý trong phạm vi và chỉ hỏi khi thông tin còn thiếu có thể làm thay đổi đáng kể phạm vi, hành vi người dùng, an toàn dữ liệu hoặc phân quyền, hay đòi hỏi thao tác bên ngoài hoặc phá huỷ.
+- Thực hiện thay đổi nhỏ nhất nhưng đầy đủ; không thêm tính năng, abstraction, cấu hình, refactor, định dạng hay dọn dẹp ngoài yêu cầu. Chỉ loại bỏ phần code trở nên không còn được dùng do chính thay đổi đó.
+- Với capability mới hoặc phức tạp, kiểm tra pattern hiện có của dự án, tài liệu chính thức và implementation GitHub uy tín, còn được duy trì. Xác minh khả năng tương thích, giấy phép, bảo mật và tình trạng bảo trì; chỉ coi GitHub là nguồn tham khảo, không phải quyền tự động cài dependency hoặc sao chép toàn bộ implementation. Bỏ qua nghiên cứu bên ngoài với thay đổi thường lệ đã có pattern trong dự án.
 
 ## Chọn bộ quy tắc
 

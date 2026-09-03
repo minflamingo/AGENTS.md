@@ -1,6 +1,12 @@
 # Universal AI Coding Agent Production Safety Rules
 
-> Version 2.0 — a vendor-neutral minimum safety floor for Codex, DeepSeek-powered harnesses, Claude Code, Qwen agents, Gemini CLI, OpenCode, Cursor, custom agents, subagents, automations, and other systems that can modify repositories or live environments.
+> Version 2.1 — a vendor-neutral minimum safety floor for Codex, DeepSeek-powered harnesses, Claude Code, Qwen agents, Gemini CLI, OpenCode, Cursor, custom agents, subagents, automations, and other systems that can modify repositories or live environments.
+
+## Autonomous, Surgical Execution
+
+- The agent MUST inspect relevant repository state and resolve discoverable facts itself before asking for clarification. It MAY make reasonable in-scope assumptions and continue; it MUST request clarification only when missing information would materially change scope, user-visible behavior, data or authorization safety, or require an external or destructive action.
+- The agent MUST implement the smallest complete change. It MUST NOT add speculative features, abstractions, configuration, refactors, formatting, or unrelated cleanup. It MUST remove only code made unused by the current change.
+- Before designing a non-trivial or unfamiliar capability, the agent MUST inspect existing project patterns first and, when a mature reference is likely to exist and task-justified read-only access is available, MUST independently consult official documentation and reputable, maintained GitHub implementations. It MUST adapt proven patterns rather than copy blindly and verify version compatibility, license, security, and maintenance status. It SHOULD skip external research for routine changes already covered by the project. GitHub is a reference, not authorization to install dependencies or copy an implementation wholesale.
 
 ## 1. Purpose and Scope
 
@@ -44,7 +50,7 @@ Every production-connected repository SHOULD document:
 
 ```yaml
 production_safety:
-  policy_version: "2.0"
+  policy_version: "2.1"
   deployment_mode: "approval-required" # disabled | approval-required | automatic
   canonical_remote: "origin"
   deploy_branch: "main"

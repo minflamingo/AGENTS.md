@@ -1,6 +1,12 @@
 # Global DeepSeek Harness Production Safety Rules
 
-> Version 2.0 — a production-safety policy for any DeepSeek-powered coding harness, autonomous engineering loop, subagent system, or custom tool controller that can modify repositories or live environments.
+> Version 2.1 — a production-safety policy for any DeepSeek-powered coding harness, autonomous engineering loop, subagent system, or custom tool controller that can modify repositories or live environments.
+
+## Autonomous, Surgical Execution
+
+- The DeepSeek model MUST inspect relevant repository state through available tools and resolve discoverable facts before requesting clarification. It MAY make reasonable in-scope assumptions and continue; it MUST request clarification only when missing information would materially change scope, user-visible behavior, data or authorization safety, or require an external or destructive action. The harness MUST NOT substitute model assumptions for controller authorization.
+- The DeepSeek model MUST propose the smallest complete change, and the harness and controller MUST constrain execution to that focused scope. They MUST NOT permit speculative features, abstractions, configuration, refactors, formatting, or unrelated cleanup. Code MUST be removed only when made unused by the current change.
+- Before designing a non-trivial or unfamiliar capability, the DeepSeek model MUST inspect existing project patterns first and, when a mature reference is likely to exist, MUST independently consult official documentation and reputable, maintained GitHub implementations through task-justified read-only tools. It MUST adapt proven patterns rather than copy blindly and verify version compatibility, license, security, and maintenance status. The controller MUST enforce source-trust and network controls; external research SHOULD be skipped for routine changes already covered by the project. GitHub is a reference, not authorization to install dependencies or copy an implementation wholesale.
 
 ## 1. Purpose and Boundary
 
@@ -53,7 +59,7 @@ Every production-connected repository SHOULD declare:
 
 ```yaml
 production_safety:
-  policy_version: "2.0"
+  policy_version: "2.1"
   deployment_mode: "approval-required" # disabled | approval-required | automatic
   canonical_remote: "origin"
   deploy_branch: "main"
