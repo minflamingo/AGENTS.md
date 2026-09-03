@@ -2,6 +2,12 @@
 
 > Version 2.0 — a minimum safety floor for Codex CLI, the Codex app, Codex automations, subagents, and related Codex sessions that can modify a repository connected to a live environment.
 
+## Autonomous, Surgical Execution
+
+- Inspect the relevant repository state and resolve discoverable facts yourself. Make reasonable in-scope assumptions and continue; ask only when missing information would materially change scope, user-visible behavior, data or authorization safety, or require an external or destructive action.
+- Implement the smallest complete change. Do not add speculative features, abstractions, configuration, refactors, formatting, or unrelated cleanup. Remove only code made unused by the current change.
+- Before designing a non-trivial or unfamiliar capability, inspect existing project patterns first, then independently consult official documentation and reputable, maintained GitHub implementations when a mature reference is likely to exist. Adapt proven patterns rather than copying blindly; verify version compatibility, license, security, and maintenance status. Skip external research for routine changes already covered by the project.
+
 ## 1. Scope and Precedence
 
 These rules apply to every repository opened with Codex when the repository can affect a live VPS, server, release environment, database, cloud resource, or production service.
